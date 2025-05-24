@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Đồng Hồ LED</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Segment Style Digital Clock</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
     body {
       margin: 0;
       height: 100vh;
+      background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
-      font-family: 'Orbitron', sans-serif;
     }
 
     .clock {
+      font-family: 'Share Tech Mono', monospace;
       font-size: 100px;
-      color: #86e3f9;
-      text-shadow: 0 0 10px rgba(134, 227, 249, 0.8),
-                   0 0 20px rgba(134, 227, 249, 0.6);
-      letter-spacing: 10px;
+      color: #80d8ff;
+      text-shadow:
+        0 0 5px #80d8ff,
+        0 0 10px #80d8ff,
+        0 0 20px #80d8ff;
+      letter-spacing: 15px;
     }
   </style>
 </head>
@@ -32,8 +34,8 @@
   <script>
     function updateClock() {
       const now = new Date();
-      let hours = now.getHours().toString().padStart(2, '0');
-      let minutes = now.getMinutes().toString().padStart(2, '0');
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
       document.getElementById('clock').textContent = `${hours}:${minutes}`;
     }
 
