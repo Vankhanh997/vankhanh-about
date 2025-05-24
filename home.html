@@ -1,46 +1,44 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Đồng Hồ Điện Tử</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đồng Hồ LED</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
     body {
+      margin: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background-color: #000;
-      font-family: 'Courier New', Courier, monospace;
+      background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+      font-family: 'Orbitron', sans-serif;
     }
 
     .clock {
-      font-size: 80px;
-      color: #00FF00;
-      background-color: #111;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px #00FF00;
+      font-size: 100px;
+      color: #86e3f9;
+      text-shadow: 0 0 10px rgba(134, 227, 249, 0.8),
+                   0 0 20px rgba(134, 227, 249, 0.6);
+      letter-spacing: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="clock" id="clock">00:00:00</div>
+  <div class="clock" id="clock">00:00</div>
 
   <script>
     function updateClock() {
       const now = new Date();
-      const hours = String(now.getHours()).padStart(2, '0');
-      const minutes = String(now.getMinutes()).padStart(2, '0');
-      const seconds = String(now.getSeconds()).padStart(2, '0');
-      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+      let hours = now.getHours().toString().padStart(2, '0');
+      let minutes = now.getMinutes().toString().padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}`;
     }
 
-    // Cập nhật mỗi giây
-    setInterval(updateClock, 1000);
-
-    // Cập nhật ngay khi tải trang
     updateClock();
+    setInterval(updateClock, 1000);
   </script>
 </body>
 </html>
